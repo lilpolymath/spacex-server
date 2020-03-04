@@ -32,6 +32,7 @@ const server = new ApolloServer({
     userAPI: new UserAPI({ store }),
   }),
 });
+console.log(app);
 
 server.applyMiddleware({ app, path: '/graphql' });
 
