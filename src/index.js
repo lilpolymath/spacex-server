@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const { ApolloServer, gql } = require('apollo-server-express');
 const isEmail = require('isemail');
 
@@ -9,6 +10,7 @@ const UserAPI = require('./datasources/user');
 const LaunchAPI = require('./datasources/launch');
 
 const app = express();
+app.use(cors());
 
 const store = createStore();
 const server = new ApolloServer({
