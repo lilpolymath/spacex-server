@@ -1,6 +1,4 @@
-const express = require('express');
-const cors = require('cors');
-const { ApolloServer, gql } = require('apollo-server-express');
+const { ApolloServer } = require('apollo-server');
 const isEmail = require('isemail');
 
 const { createStore } = require('./utils');
@@ -8,9 +6,6 @@ const typeDefs = require('./schema');
 const resolvers = require('./resolvers');
 const UserAPI = require('./datasources/user');
 const LaunchAPI = require('./datasources/launch');
-
-const app = express();
-app.use(cors());
 
 const store = createStore();
 const server = new ApolloServer({
@@ -35,8 +30,6 @@ const server = new ApolloServer({
   }),
 });
 
-server.applyMiddleware({ app, path: '/graphql' });
-
-app.listen({ port: process.env.PORT || 4000 }, () => {
-  console.log(`🚀 Server ready at http://localhost:4000/graphql`);
+server.listen({ port: process.env.PORT || 3000 }, () => {
+  console.log(`🚀 Server ready at http://localhost:3000/graphql`);
 });

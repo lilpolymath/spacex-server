@@ -1,6 +1,6 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require('apollo-server');
 
-const tyepDefs = gql`
+const typeDefs = gql`
   type Launch {
     id: ID!
     site: String
@@ -62,4 +62,4 @@ const tyepDefs = gql`
   }
 `;
 
-module.exports = tyepDefs;
+module.exports = typeDefs;
